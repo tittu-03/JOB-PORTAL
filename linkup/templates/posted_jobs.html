@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+
+
+
+        body{
+        background-image:url('{% static 'posted_jobs_folder/ios-11-default-wallpaper-900x900.jpeg' %}');
+        background-size:cover;
+        }
+        #f{
+        background-color:white;
+        height:450px;
+        border-radius:10px;
+        border:2px solid black;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<!--navbar-->
+
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="http://127.0.0.1:8000/" class="navbar-brand">LinkUp</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+                         <li><a href="http://127.0.0.1:8000/show_job/">Jobs</a></li>
+                         <li><a href="about-us.html">About Us</a></li>
+                         <li><a href="http://127.0.0.1:8000/userlogin/">User</a></li>
+                         <li><a href="http://127.0.0.1:8000/company_login/">Employer</a> </li>
+                         <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+<br><br><br><br>
+    {% for i in job %}
+
+<div>
+
+    <div class="container" id="f">
+        <br>
+        <center>
+            <span class="tag tag-teal" style="font-size:30px;">
+                {{i.jobtitle}}
+
+            </span>
+        </center>
+        <br>
+     <div class="container">
+         <div class="row">
+             <div class="col-4"></div>
+             <div>Company Name : {{i.companyname}}</div><br>
+         </div>
+          <div class="row">
+             <div class="col-4"></div>
+             <div>Experience&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  : {{i.experience}}</div><br>
+         </div>
+           <div class="row">
+             <div class="col-4"></div>
+             <div>Work Type &nbsp; &nbsp; &nbsp; &nbsp; : {{i.wtype}}</div><br>
+         </div>
+          <div class="row">
+             <div class="col-4"></div>
+             <div>Employment Type : {{i.jtype}}</div><br>
+         </div>
+          <div class="row">
+             <div class="col-4"></div>
+             <div>Description : {{i.description}}</div><br>
+         </div>
+         <div class="row">
+             <div class="col-4"></div>
+                <a class="btn btn-success" href="/view_applicants/{{i.jobtitle}}/{{i.companyname}}">View applicants</a>
+         </div>
+
+
+
+     </div>
+
+
+    </div>
+
+
+</div>
+   <br><br>
+{% endfor %}
+
+
+
+</body>
+</html>

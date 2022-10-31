@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Reistration Form</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+
+body {
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	background-color:#f7f7f7;
+}
+* {box-sizing: border-box}
+
+/* Add padding to container elements */
+.container {
+    padding: 20px;
+      width:500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+      border:1px solid #ccc;
+      border-radius:10px;
+      background:white;
+  -webkit-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  -moz-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  }
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+select {
+  width: 18%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+
+input[type=phone] {
+  width: 81%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=phone]:focus, select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+/* Set a style for all buttons */
+button {
+  background-color: #0eb7f4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+	font-size:16px;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	border-radius:10px;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+/* Change styles for signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .signupbtn {
+     width: 100%;
+  }
+}
+
+.youtubeBtn{
+    position: fixed;
+    right: 20px;
+  transform:translatex(-50%);
+    top: 20px;
+    cursor: pointer;
+    transition: all .3s;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+  background:#000;
+  padding:2px 10px;
+  border-radius:5px;
+}
+.youtubeBtn i{
+   font-size:20px;
+  float:left;
+}
+.youtubeBtn a{
+    color:#ff0000;
+    animation: youtubeAnim 1000ms linear infinite;
+  float:right;
+}
+.youtubeBtn a:hover{
+  color:#c9110f;
+  transition:all .3s ease-in-out;
+}
+.youtubeBtn i:active{
+  transform:scale(.9);
+  transition:all .3s ease-in-out;
+}
+.youtubeBtn span{
+    font-family: 'Lato';
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    float: right;
+    line-height: 20px;
+    padding-left: 5px;
+
+}
+
+@keyframes youtubeAnim{
+  0%,100%{
+    color:#c9110f;
+  }
+  50%{
+    color:#ff0000;
+  }
+}
+body{
+background-image:url('https://photos.smugmug.com/Wallpapers/i-9f7H7SN/0/01c72b86/O/HDRshooter-4K-wallpaper-053-3840x2160.jpg');
+background-size:cover;
+}
+
+    </style>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div  class="container ">
+          <h1>Apply Now</h1>
+          <p>Please Fill the Details</p>
+
+              <label for="fullname"><b>Full Name</b></label>
+            <input name="fullname"  type="text" placeholder="Enter Full name" id="fullname" required>
+          <label for="email"><b>Email</b></label>
+          <input name="email"  type="text" placeholder="Enter Email" id="email" required>
+
+
+                  <label for="email"><b>Phone Number</b></label>
+            <br>
+           <select name="country_code" required>
+            <option selected hidden value="">Code</option>
+            <option value="+91">+91</option>
+            <option value="+99">+99</option>
+            <option value="+90">+90</option>
+            <option value="+66">+66</option>
+           </select>
+           <input type="phone" name="phone" placeholder="Enter valid contact number" required>
+
+            <label for="resume">Upload Resume</label>
+            <input name="resume" type="file" placeholder="upload resume" id="resume"><br><br>
+
+           <label >RELEVANT EXPERIENCE <span>(optional)</span> </label><br><br>
+          <label for="job_title">Job Title</label>
+
+            <input name="current_position" id="job_title"  type="text">
+            <label for="company">Company</label>
+            <input name="current_company" id="company" type="text">
+
+          <div class="clearfix">
+
+            <button type="submit" class="btn btn-success">Apply Now</button>
+          </div>
+        </div>
+      </form>
+
+
+
+
+</body>
+</html>

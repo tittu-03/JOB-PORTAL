@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+        .count:before {
+  counter-increment: section;
+  content: counter(section);
+}
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+table {
+	width: 1200px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+	    counter-reset: section;
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead {
+	th {
+		background-color: #55608f;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+<!--{% for i in x %}-->
+
+<!--<p>{{i.job_title}}</p>-->
+<!--<p>{{i.company_name}}</p>-->
+<!--<p></p>-->
+<!--<p></p>-->
+<!--<hr>-->
+<!--{% endfor %}-->
+
+
+<center><h1 style="color:white">Applied Jobs</h1>  </center>
+
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th  style="color:black;">Sl number</th>
+				<th style="color:black;">Company Name</th>
+				<th style="color:black;">Job Title</th>
+				<th style="color:black;">Applied Date</th>
+				<th style="color:black;">Contact Number</th>
+				<th  style="color:black;">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for i in x %}
+			<tr>
+
+				<td class="count"></td>
+				<td>{{i.company_name}}</td>
+				<td>{{i.job_title}}</td>
+				<td>{{i.date}}</td>
+				<td>{{i.phone}}</td>
+				<td >  {{i.email}}   </td>
+			</tr>
+
+         {% endfor %}
+		</tbody>
+	</table>
+</div>
+
+
+</body>
+</html>
